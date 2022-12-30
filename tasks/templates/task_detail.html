@@ -7,23 +7,32 @@
     <div class="col-md-4 offset-md-4 mt-5">
       <h1 class="text-secondary text-center">{{ task.title }}</h1>
       
-      {{ error }}
-
       <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-primary">
-          Update
-        </button>
+        <div class="d-flex">
+          <button class="btn btn-primary mx-auto">
+            Update
+          </button>
+        </div>
       </form>
 
-      <div class="d-flex mt-5">
+      <div class="d-flex mt-4 justify-content-evenly">
+        {% if task.datecompleted is None %}
         <form action="{% url 'complete_task' task.id %}" method="POST">
           {% csrf_token %}
           <button class="btn btn-secondary">
             Complete
           </button>
         </form>
+        {% else %}
+        <form action="{% url 'undone_task' task.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-secondary">
+            Undone
+          </button>
+        </form>
+        {% endif %}
         
         <form action="{% url 'delete_task' task.id %}" method="POST">
           {% csrf_token %}
