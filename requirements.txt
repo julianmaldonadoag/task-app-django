@@ -1,0 +1,13 @@
+asgiref==3.5.2
+Brotli==1.0.9
+dj-database-url==2.0.0
+Django==4.1
+gunicorn==20.1.0
+pip==23.1.2
+psycopg2-binary==2.9.6
+setuptools==67.8.0
+sqlparse==0.4.3
+typing_extensions==4.6.3
+tzdata==2021.1
+wheel==0.38.4
+whitenoise==6.4.0
